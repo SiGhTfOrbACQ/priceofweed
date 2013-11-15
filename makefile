@@ -1,11 +1,11 @@
-repo: data.Rout plot.Rout
+repo: clean_data.Rout plot_data.Rout
 
-# ./data/mj_raw.csv: price_data.py #data is no longer accessible
+# ./data/raw.csv: get_data.py
 # 	test -d "data" || mkdir -p "data"
-# 	python price_data.py
+# 	python get_data.py
 
-./data/mj_clean.csv: data.R ./data/mj_raw.csv
-	R CMD BATCH data.R
+./data/clean.csv: clean_data.R ./data/raw.csv
+	R CMD BATCH clean_data.R
 
-plot.Rout: plot.R ./data/mj_clean.csv
-	R CMD BATCH plot.R
+plot_data.Rout: plot.R ./data/clean.csv
+	R CMD BATCH plot_data.R
